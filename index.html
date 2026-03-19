@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Immaculate Pro Painting LLC — Seattle, WA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <style>
     /* ============================================================
        CSS CUSTOM PROPERTIES
     ============================================================ */
     :root {
-      --color-bg:        #0A0A0A;
-      --color-surface:   #141414;
+      --color-bg: #0A0A0A;
+      --color-surface: #141414;
       --color-surface-2: #1E1E1E;
-      --color-gold:      #C9A84C;
-      --color-gold-light:#E2C47A;
+      --color-gold: #C9A84C;
+      --color-gold-light: #E2C47A;
       --color-gold-dark: #9A7A32;
-      --color-white:     #FFFFFF;
-      --color-text:      #E0E0E0;
-      --color-muted:     #888888;
-      --color-border:    rgba(201, 168, 76, 0.2);
+      --color-white: #FFFFFF;
+      --color-text: #E0E0E0;
+      --color-muted: #888888;
+      --color-border: rgba(201, 168, 76, 0.2);
 
       --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-ui:      'Montserrat', sans-serif;
+      --font-ui: 'Montserrat', sans-serif;
 
       --nav-h: 80px;
       --section-pad: clamp(80px, 10vw, 140px);
@@ -33,9 +36,17 @@
     /* ============================================================
        RESET & BASE
     ============================================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background: var(--color-bg);
@@ -47,9 +58,19 @@
       cursor: none;
     }
 
-    img { display: block; max-width: 100%; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
 
     /* ============================================================
        CUSTOM CURSOR
@@ -66,6 +87,7 @@
       transition: transform 0.1s ease, opacity 0.3s;
       mix-blend-mode: difference;
     }
+
     .cursor.grow {
       transform: translate(-50%, -50%) scale(3);
       opacity: 0.6;
@@ -77,7 +99,7 @@
     .divider {
       width: 100%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4) 30%, rgba(201,168,76,0.4) 70%, transparent);
+      background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.4) 30%, rgba(201, 168, 76, 0.4) 70%, transparent);
     }
 
     /* ============================================================
@@ -101,6 +123,7 @@
       transform: translateY(28px);
       transition: opacity 0.75s ease, transform 0.75s ease;
     }
+
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
@@ -111,7 +134,9 @@
     ============================================================ */
     #navbar {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 1000;
       height: var(--nav-h);
       display: flex;
@@ -119,8 +144,9 @@
       padding: 0 clamp(24px, 5vw, 72px);
       transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
     }
+
     #navbar.scrolled {
-      background: rgba(10,10,10,0.96);
+      background: rgba(10, 10, 10, 0.96);
       backdrop-filter: blur(12px);
       box-shadow: 0 1px 0 var(--color-border);
     }
@@ -140,8 +166,18 @@
       gap: 12px;
       cursor: pointer;
     }
-    .nav-logo svg { width: 38px; height: 38px; }
-    .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+
+    .nav-logo svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
     .nav-logo-text .brand-main {
       font-family: var(--font-display);
       font-size: 1.15rem;
@@ -149,6 +185,7 @@
       letter-spacing: 0.12em;
       color: var(--color-white);
     }
+
     .nav-logo-text .brand-sub {
       font-family: var(--font-ui);
       font-size: 0.6rem;
@@ -163,6 +200,7 @@
       align-items: center;
       gap: 36px;
     }
+
     .nav-links a {
       font-size: 0.72rem;
       font-weight: 500;
@@ -172,16 +210,25 @@
       transition: color 0.25s;
       position: relative;
     }
+
     .nav-links a::after {
       content: '';
       position: absolute;
-      bottom: -3px; left: 0;
-      width: 0; height: 1px;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
       background: var(--color-gold);
       transition: width 0.3s ease;
     }
-    .nav-links a:hover { color: var(--color-gold); }
-    .nav-links a:hover::after { width: 100%; }
+
+    .nav-links a:hover {
+      color: var(--color-gold);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
     .btn-nav-cta {
       font-family: var(--font-ui);
@@ -196,6 +243,7 @@
       cursor: pointer;
       transition: background 0.25s, transform 0.2s;
     }
+
     .btn-nav-cta:hover {
       background: var(--color-gold-light);
       transform: translateY(-1px);
@@ -209,6 +257,7 @@
       cursor: pointer;
       padding: 6px;
     }
+
     .hamburger span {
       display: block;
       width: 24px;
@@ -216,15 +265,26 @@
       background: var(--color-gold);
       transition: all 0.3s ease;
     }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
 
     /* Mobile menu */
     .mobile-menu {
       position: fixed;
-      top: var(--nav-h); left: 0; right: 0;
-      background: rgba(10,10,10,0.98);
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 10, 0.98);
       backdrop-filter: blur(20px);
       padding: 32px clamp(24px, 5vw, 48px) 48px;
       display: flex;
@@ -233,9 +293,13 @@
       transform: translateY(-110%);
       transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       z-index: 999;
+    }
+
+    .mobile-menu.open {
+      transform: translateY(0);
       border-bottom: 1px solid var(--color-border);
     }
-    .mobile-menu.open { transform: translateY(0); }
+
     .mobile-menu a {
       font-size: 1.6rem;
       font-family: var(--font-display);
@@ -244,7 +308,11 @@
       color: var(--color-text);
       transition: color 0.25s;
     }
-    .mobile-menu a:hover { color: var(--color-gold); }
+
+    .mobile-menu a:hover {
+      color: var(--color-gold);
+    }
+
     .mobile-menu .btn-nav-cta {
       align-self: flex-start;
       font-size: 0.7rem;
@@ -280,7 +348,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 100%);
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.7) 100%);
       z-index: 0;
       pointer-events: none;
     }
@@ -316,10 +384,13 @@
       transform: translateY(24px);
       animation: fadeUp 0.9s ease 0.2s forwards;
     }
+
     .hero-eyebrow-line {
-      width: 40px; height: 1px;
+      width: 40px;
+      height: 1px;
       background: var(--color-gold);
     }
+
     .hero-eyebrow span {
       font-family: var(--font-ui);
       font-size: 0.68rem;
@@ -341,6 +412,7 @@
       transform: translateY(28px);
       animation: fadeUp 0.9s ease 0.38s forwards;
     }
+
     .hero-headline em {
       font-style: italic;
       color: var(--color-gold-light);
@@ -382,6 +454,7 @@
       display: inline-block;
       transition: background 0.25s, color 0.25s, transform 0.2s;
     }
+
     .btn-primary:hover {
       background: var(--color-gold-light);
       border-color: var(--color-gold-light);
@@ -397,14 +470,15 @@
       background: transparent;
       color: var(--color-gold);
       padding: 16px 36px;
-      border: 2px solid rgba(201,168,76,0.6);
+      border: 2px solid rgba(201, 168, 76, 0.6);
       cursor: pointer;
       display: inline-block;
       transition: border-color 0.25s, color 0.25s, background 0.25s, transform 0.2s;
     }
+
     .btn-outline:hover {
       border-color: var(--color-gold);
-      background: rgba(201,168,76,0.06);
+      background: rgba(201, 168, 76, 0.06);
       transform: translateY(-2px);
     }
 
@@ -417,6 +491,7 @@
       transform: translateY(28px);
       animation: fadeUp 0.9s ease 0.92s forwards;
     }
+
     .badge {
       display: flex;
       align-items: center;
@@ -426,8 +501,10 @@
       letter-spacing: 0.12em;
       color: var(--color-muted);
     }
+
     .badge-icon {
-      width: 28px; height: 28px;
+      width: 28px;
+      height: 28px;
       border: 1px solid var(--color-border);
       border-radius: 50%;
       display: flex;
@@ -438,7 +515,10 @@
     }
 
     @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Scroll indicator */
@@ -455,23 +535,41 @@
       opacity: 0;
       animation: fadeUp 0.9s ease 1.3s forwards;
     }
+
     .scroll-hint span {
       font-size: 0.6rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--color-muted);
     }
+
     .scroll-hint-line {
       width: 1px;
       height: 48px;
       background: linear-gradient(180deg, var(--color-gold) 0%, transparent 100%);
       animation: scrollLine 2s ease-in-out infinite;
     }
+
     @keyframes scrollLine {
-      0% { transform: scaleY(0); transform-origin: top; }
-      50% { transform: scaleY(1); transform-origin: top; }
-      51% { transform: scaleY(1); transform-origin: bottom; }
-      100% { transform: scaleY(0); transform-origin: bottom; }
+      0% {
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+
+      50% {
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+
+      51% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+      }
+
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
     }
 
     /* ============================================================
@@ -481,10 +579,12 @@
       padding: var(--section-pad) clamp(24px, 6vw, 80px);
       background: var(--color-bg);
     }
+
     .services-inner {
       max-width: 1400px;
       margin: 0 auto;
     }
+
     .services-header {
       display: flex;
       align-items: flex-end;
@@ -493,6 +593,7 @@
       gap: 24px;
       margin-bottom: 60px;
     }
+
     .services-header-left h2 {
       font-family: var(--font-display);
       font-size: clamp(2.2rem, 4vw, 3.5rem);
@@ -500,6 +601,7 @@
       color: var(--color-white);
       line-height: 1.1;
     }
+
     .services-header-right {
       font-size: 0.85rem;
       color: var(--color-muted);
@@ -525,28 +627,36 @@
       position: relative;
       overflow: hidden;
     }
+
     .service-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 2px;
       background: var(--color-gold);
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.4s ease;
     }
+
     .service-card:hover {
       background: var(--color-surface-2);
       transform: translateY(-4px);
-      box-shadow: 0 8px 40px rgba(201,168,76,0.1);
+      box-shadow: 0 8px 40px rgba(201, 168, 76, 0.1);
     }
-    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
 
     .service-icon {
       width: 52px;
       height: 52px;
       color: var(--color-gold);
     }
+
     .service-title {
       font-family: var(--font-display);
       font-size: 1.6rem;
@@ -554,12 +664,14 @@
       color: var(--color-white);
       line-height: 1.15;
     }
+
     .service-desc {
       font-size: 0.85rem;
       color: var(--color-muted);
       line-height: 1.75;
       flex: 1;
     }
+
     .service-link {
       font-size: 0.68rem;
       font-weight: 600;
@@ -571,7 +683,10 @@
       gap: 8px;
       transition: gap 0.2s;
     }
-    .service-card:hover .service-link { gap: 14px; }
+
+    .service-card:hover .service-link {
+      gap: 14px;
+    }
 
     /* ============================================================
        WHY CHOOSE US
@@ -581,14 +696,17 @@
       background: var(--color-surface);
       position: relative;
     }
+
     .why-inner {
       max-width: 1400px;
       margin: 0 auto;
     }
+
     .why-header {
       text-align: center;
       margin-bottom: 72px;
     }
+
     .why-header h2 {
       font-family: var(--font-display);
       font-size: clamp(2.2rem, 4vw, 3.5rem);
@@ -596,6 +714,7 @@
       color: var(--color-white);
       margin-bottom: 16px;
     }
+
     .why-header p {
       font-size: 0.9rem;
       color: var(--color-muted);
@@ -614,7 +733,10 @@
       border-right: 1px solid var(--color-border);
       position: relative;
     }
-    .why-card:last-child { border-right: none; }
+
+    .why-card:last-child {
+      border-right: none;
+    }
 
     .why-number {
       font-family: var(--font-display);
@@ -625,19 +747,25 @@
       line-height: 1;
       margin-bottom: 20px;
     }
+
     .why-icon-row {
       display: flex;
       align-items: center;
       gap: 12px;
       margin-bottom: 16px;
     }
-    .why-icon { font-size: 1.4rem; }
+
+    .why-icon {
+      font-size: 1.4rem;
+    }
+
     .why-title {
       font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 600;
       color: var(--color-white);
     }
+
     .why-desc {
       font-size: 0.85rem;
       color: var(--color-muted);
@@ -651,14 +779,17 @@
       padding: var(--section-pad) clamp(24px, 6vw, 80px);
       background: var(--color-bg);
     }
+
     .gallery-inner {
       max-width: 1400px;
       margin: 0 auto;
     }
+
     .gallery-header {
       text-align: center;
       margin-bottom: 48px;
     }
+
     .gallery-header h2 {
       font-family: var(--font-display);
       font-size: clamp(2.2rem, 4vw, 3.5rem);
@@ -666,6 +797,7 @@
       color: var(--color-white);
       margin-bottom: 12px;
     }
+
     .gallery-header p {
       font-size: 0.85rem;
       color: var(--color-muted);
@@ -678,6 +810,7 @@
       flex-wrap: wrap;
       margin-bottom: 48px;
     }
+
     .filter-btn {
       font-family: var(--font-ui);
       font-size: 0.65rem;
@@ -691,10 +824,12 @@
       cursor: pointer;
       transition: all 0.25s;
     }
-    .filter-btn:hover, .filter-btn.active {
+
+    .filter-btn:hover,
+    .filter-btn.active {
       border-color: var(--color-gold);
       color: var(--color-gold);
-      background: rgba(201,168,76,0.06);
+      background: rgba(201, 168, 76, 0.06);
     }
 
     .gallery-grid {
@@ -715,35 +850,59 @@
       aspect-ratio: 4/3;
       overflow: hidden;
     }
+
     .gallery-item-inner {
       position: absolute;
       inset: 0;
     }
 
     /* Before gradients */
-    .before-1 { background: linear-gradient(135deg, #2a2420 0%, #1a1512 50%, #0f0e0b 100%); }
-    .before-2 { background: linear-gradient(135deg, #1e1e20 0%, #141416 50%, #0d0d0f 100%); }
-    .before-3 { background: linear-gradient(135deg, #201a18 0%, #151210 50%, #0c0b09 100%); }
-    .before-4 { background: linear-gradient(135deg, #1c1c1c 0%, #121212 50%, #0a0a0a 100%); }
+    .before-1 {
+      background: linear-gradient(135deg, #2a2420 0%, #1a1512 50%, #0f0e0b 100%);
+    }
+
+    .before-2 {
+      background: linear-gradient(135deg, #1e1e20 0%, #141416 50%, #0d0d0f 100%);
+    }
+
+    .before-3 {
+      background: linear-gradient(135deg, #201a18 0%, #151210 50%, #0c0b09 100%);
+    }
+
+    .before-4 {
+      background: linear-gradient(135deg, #1c1c1c 0%, #121212 50%, #0a0a0a 100%);
+    }
 
     /* After gradients — slightly richer, brighter tone */
-    .after-1 { background: linear-gradient(135deg, #2c2218 0%, #1e160e 40%, #150f08 100%); }
-    .after-2 { background: linear-gradient(135deg, #181820 0%, #10101a 40%, #080810 100%); }
-    .after-3 { background: linear-gradient(135deg, #221a14 0%, #180e08 40%, #100905 100%); }
-    .after-4 { background: linear-gradient(135deg, #1a1a1a 0%, #111111 40%, #080808 100%); }
+    .after-1 {
+      background: linear-gradient(135deg, #2c2218 0%, #1e160e 40%, #150f08 100%);
+    }
+
+    .after-2 {
+      background: linear-gradient(135deg, #181820 0%, #10101a 40%, #080810 100%);
+    }
+
+    .after-3 {
+      background: linear-gradient(135deg, #221a14 0%, #180e08 40%, #100905 100%);
+    }
+
+    .after-4 {
+      background: linear-gradient(135deg, #1a1a1a 0%, #111111 40%, #080808 100%);
+    }
 
     /* Simulated painted surface — painted overlay */
-    .after-1::after, .after-2::after, .after-3::after, .after-4::after {
+    .after-1::after,
+    .after-2::after,
+    .after-3::after,
+    .after-4::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        rgba(201,168,76,0.03) 0px,
-        rgba(201,168,76,0.03) 1px,
-        transparent 1px,
-        transparent 8px
-      );
+      background: repeating-linear-gradient(-45deg,
+          rgba(201, 168, 76, 0.03) 0px,
+          rgba(201, 168, 76, 0.03) 1px,
+          transparent 1px,
+          transparent 8px);
     }
 
     .gallery-label {
@@ -757,11 +916,13 @@
       padding: 5px 10px;
       z-index: 2;
     }
+
     .label-before {
-      background: rgba(0,0,0,0.7);
+      background: rgba(0, 0, 0, 0.7);
       color: var(--color-muted);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
+
     .label-after {
       background: var(--color-gold);
       color: var(--color-bg);
@@ -769,21 +930,24 @@
 
     .gallery-divider {
       position: absolute;
-      top: 0; bottom: 0;
+      top: 0;
+      bottom: 0;
       left: 50%;
       width: 2px;
       background: var(--color-gold);
       z-index: 3;
     }
+
     .gallery-divider::after {
       content: '↔';
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%, -50%);
       background: var(--color-gold);
       color: var(--color-bg);
-      width: 28px; height: 28px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -793,9 +957,11 @@
 
     .gallery-caption {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       padding: 10px 14px;
-      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
       font-size: 0.68rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -811,14 +977,17 @@
       padding: var(--section-pad) clamp(24px, 6vw, 80px);
       background: var(--color-surface);
     }
+
     .testimonials-inner {
       max-width: 1400px;
       margin: 0 auto;
     }
+
     .testimonials-header {
       text-align: center;
       margin-bottom: 64px;
     }
+
     .testimonials-header h2 {
       font-family: var(--font-display);
       font-size: clamp(2.2rem, 4vw, 3.5rem);
@@ -826,6 +995,7 @@
       color: var(--color-white);
       margin-bottom: 10px;
     }
+
     .testimonials-header p {
       font-size: 0.85rem;
       color: var(--color-muted);
@@ -846,9 +1016,10 @@
       gap: 20px;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
+
     .review-card:hover {
-      border-color: rgba(201,168,76,0.5);
-      box-shadow: 0 4px 32px rgba(201,168,76,0.07);
+      border-color: rgba(201, 168, 76, 0.5);
+      box-shadow: 0 4px 32px rgba(201, 168, 76, 0.07);
     }
 
     .review-stars {
@@ -857,6 +1028,7 @@
       color: var(--color-gold);
       font-size: 0.95rem;
     }
+
     .review-text {
       font-family: var(--font-display);
       font-size: 1.15rem;
@@ -866,6 +1038,7 @@
       line-height: 1.7;
       flex: 1;
     }
+
     .review-author {
       display: flex;
       align-items: center;
@@ -873,8 +1046,10 @@
       border-top: 1px solid var(--color-border);
       padding-top: 20px;
     }
+
     .review-avatar {
-      width: 44px; height: 44px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -884,21 +1059,35 @@
       font-weight: 600;
       color: var(--color-bg);
     }
-    .avatar-a { background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark)); }
-    .avatar-b { background: linear-gradient(135deg, #8B7355, #5C4A2A); }
-    .avatar-c { background: linear-gradient(135deg, #6B8CAE, #3D5A73); }
 
-    .review-info { flex: 1; }
+    .avatar-a {
+      background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+    }
+
+    .avatar-b {
+      background: linear-gradient(135deg, #8B7355, #5C4A2A);
+    }
+
+    .avatar-c {
+      background: linear-gradient(135deg, #6B8CAE, #3D5A73);
+    }
+
+    .review-info {
+      flex: 1;
+    }
+
     .review-name {
       font-size: 0.85rem;
       font-weight: 600;
       color: var(--color-white);
     }
+
     .review-location {
       font-size: 0.72rem;
       color: var(--color-muted);
       letter-spacing: 0.08em;
     }
+
     .google-badge {
       display: flex;
       align-items: center;
@@ -918,6 +1107,7 @@
       border-top: 1px solid var(--color-border);
       border-bottom: 1px solid var(--color-border);
     }
+
     .stats-inner {
       max-width: 1400px;
       margin: 0 auto;
@@ -925,12 +1115,17 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
     }
+
     .stat-item {
       text-align: center;
       padding: 24px 16px;
       border-right: 1px solid var(--color-border);
     }
-    .stat-item:last-child { border-right: none; }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
     .stat-number {
       font-family: var(--font-display);
       font-size: clamp(2.5rem, 4vw, 4rem);
@@ -939,6 +1134,7 @@
       line-height: 1;
       margin-bottom: 8px;
     }
+
     .stat-label {
       font-size: 0.65rem;
       font-weight: 600;
@@ -956,6 +1152,7 @@
       position: relative;
       overflow: hidden;
     }
+
     #contact::before {
       content: '';
       position: absolute;
@@ -976,10 +1173,13 @@
       gap: 80px;
       align-items: center;
     }
+
     .contact-left {}
+
     .contact-left .section-label {
-      color: rgba(10,10,10,0.6);
+      color: rgba(10, 10, 10, 0.6);
     }
+
     .contact-left h2 {
       font-family: var(--font-display);
       font-size: clamp(2.4rem, 4.5vw, 4rem);
@@ -988,9 +1188,10 @@
       line-height: 1.1;
       margin-bottom: 20px;
     }
+
     .contact-left p {
       font-size: 0.9rem;
-      color: rgba(10,10,10,0.65);
+      color: rgba(10, 10, 10, 0.65);
       line-height: 1.75;
       margin-bottom: 40px;
     }
@@ -1009,6 +1210,7 @@
       display: inline-block;
       transition: background 0.25s, color 0.25s, transform 0.2s;
     }
+
     .btn-dark:hover {
       background: transparent;
       color: var(--color-bg);
@@ -1016,20 +1218,24 @@
     }
 
     .contact-right {}
+
     .contact-info-list {
       display: flex;
       flex-direction: column;
       gap: 28px;
     }
+
     .contact-info-item {
       display: flex;
       align-items: flex-start;
       gap: 16px;
     }
+
     .contact-info-icon {
-      width: 44px; height: 44px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      border: 2px solid rgba(10,10,10,0.2);
+      border: 2px solid rgba(10, 10, 10, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1037,14 +1243,16 @@
       flex-shrink: 0;
       color: var(--color-bg);
     }
+
     .contact-info-text .label {
       font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: rgba(10,10,10,0.55);
+      color: rgba(10, 10, 10, 0.55);
       margin-bottom: 2px;
     }
+
     .contact-info-text .value {
       font-size: 0.98rem;
       font-weight: 500;
@@ -1059,10 +1267,12 @@
       padding: 72px clamp(24px, 6vw, 80px) 36px;
       border-top: 1px solid var(--color-border);
     }
+
     .footer-inner {
       max-width: 1400px;
       margin: 0 auto;
     }
+
     .footer-top {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -1073,12 +1283,14 @@
     }
 
     .footer-brand {}
+
     .footer-logo {
       display: flex;
       align-items: center;
       gap: 12px;
       margin-bottom: 20px;
     }
+
     .footer-tagline {
       font-size: 0.78rem;
       color: var(--color-muted);
@@ -1086,10 +1298,11 @@
       margin-bottom: 24px;
       max-width: 300px;
     }
+
     .footer-license {
       font-size: 0.65rem;
       letter-spacing: 0.12em;
-      color: rgba(136,136,136,0.6);
+      color: rgba(136, 136, 136, 0.6);
       text-transform: uppercase;
     }
 
@@ -1101,21 +1314,32 @@
       color: var(--color-gold);
       margin-bottom: 20px;
     }
-    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .footer-col ul li a {
       font-size: 0.82rem;
       color: var(--color-muted);
       transition: color 0.2s;
     }
-    .footer-col ul li a:hover { color: var(--color-gold); }
+
+    .footer-col ul li a:hover {
+      color: var(--color-gold);
+    }
 
     .social-links {
       display: flex;
       gap: 12px;
       margin-top: 4px;
     }
+
     .social-link {
-      width: 38px; height: 38px;
+      width: 38px;
+      height: 38px;
       border: 1px solid var(--color-border);
       display: flex;
       align-items: center;
@@ -1124,10 +1348,11 @@
       color: var(--color-muted);
       transition: border-color 0.25s, color 0.25s, background 0.25s;
     }
+
     .social-link:hover {
       border-color: var(--color-gold);
       color: var(--color-gold);
-      background: rgba(201,168,76,0.06);
+      background: rgba(201, 168, 76, 0.06);
     }
 
     .footer-bottom {
@@ -1137,22 +1362,28 @@
       flex-wrap: wrap;
       gap: 16px;
     }
+
     .footer-copy {
       font-size: 0.72rem;
-      color: rgba(136,136,136,0.6);
+      color: rgba(136, 136, 136, 0.6);
       letter-spacing: 0.06em;
     }
+
     .footer-links-secondary {
       display: flex;
       gap: 24px;
     }
+
     .footer-links-secondary a {
       font-size: 0.68rem;
       letter-spacing: 0.1em;
-      color: rgba(136,136,136,0.6);
+      color: rgba(136, 136, 136, 0.6);
       transition: color 0.2s;
     }
-    .footer-links-secondary a:hover { color: var(--color-gold); }
+
+    .footer-links-secondary a:hover {
+      color: var(--color-gold);
+    }
 
     /* ============================================================
        FLOATING BUTTONS
@@ -1160,7 +1391,8 @@
     .float-btn {
       position: fixed;
       bottom: 32px;
-      width: 56px; height: 56px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       background: var(--color-gold);
       color: var(--color-bg);
@@ -1170,18 +1402,25 @@
       font-size: 1.35rem;
       cursor: pointer;
       z-index: 900;
-      box-shadow: 0 0 0 0 rgba(201,168,76,0.5);
+      box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.5);
       animation: pulse 2.5s ease-in-out infinite;
       transition: transform 0.2s, background 0.2s;
       border: none;
     }
+
     .float-btn:hover {
       transform: scale(1.1);
       background: var(--color-gold-light);
       animation: none;
     }
-    .float-call { left: 32px; }
-    .float-chat { right: 32px; }
+
+    .float-call {
+      left: 32px;
+    }
+
+    .float-chat {
+      right: 32px;
+    }
 
     .float-label {
       position: absolute;
@@ -1197,66 +1436,175 @@
       transition: opacity 0.2s, transform 0.2s;
       pointer-events: none;
     }
+
     .float-btn:hover .float-label {
       opacity: 1;
       transform: translateY(0);
     }
 
     @keyframes pulse {
-      0%   { box-shadow: 0 0 0 0 rgba(201,168,76,0.45); }
-      70%  { box-shadow: 0 0 0 14px rgba(201,168,76,0); }
-      100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+      0% {
+        box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.45);
+      }
+
+      70% {
+        box-shadow: 0 0 0 14px rgba(201, 168, 76, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(201, 168, 76, 0);
+      }
     }
 
     /* ============================================================
        RESPONSIVE
     ============================================================ */
     @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
-      .why-card { border-right: none; border-bottom: 1px solid var(--color-border); }
-      .why-card:nth-child(odd) { border-right: 1px solid var(--color-border); }
-      .why-card:last-child { border-bottom: none; }
-      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
-      .stat-item:nth-child(2) { border-right: none; }
-      .stat-item:nth-child(3) { border-right: 1px solid var(--color-border); }
-      .stat-item:nth-child(3), .stat-item:nth-child(4) { border-top: 1px solid var(--color-border); }
-      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-card {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .why-card:nth-child(odd) {
+        border-right: 1px solid var(--color-border);
+      }
+
+      .why-card:last-child {
+        border-bottom: none;
+      }
+
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .stat-item:nth-child(3) {
+        border-right: 1px solid var(--color-border);
+      }
+
+      .stat-item:nth-child(3),
+      .stat-item:nth-child(4) {
+        border-top: 1px solid var(--color-border);
+      }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 768px) {
-      :root { --nav-h: 68px; }
-      .nav-links, .btn-nav-cta { display: none; }
-      .hamburger { display: flex; }
+      :root {
+        --nav-h: 68px;
+      }
 
-      .gallery-grid { grid-template-columns: 1fr; }
+      .nav-links,
+      .btn-nav-cta {
+        display: none;
+      }
 
-      .reviews-grid { grid-template-columns: 1fr; }
+      .hamburger {
+        display: flex;
+      }
 
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
 
-      .footer-top { grid-template-columns: 1fr; gap: 36px; }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
     }
 
     @media (max-width: 480px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr; }
-      .why-card { border-right: none; }
-      .why-card:nth-child(odd) { border-right: none; }
-      .stats-inner { grid-template-columns: 1fr 1fr; }
-      .gallery-pair { grid-template-columns: 1fr; }
-      .gallery-divider { display: none; }
-      .hero-ctas { flex-direction: column; }
-      .btn-primary, .btn-outline { text-align: center; }
-      .float-btn { width: 48px; height: 48px; font-size: 1.1rem; }
-      .float-call { left: 20px; bottom: 24px; }
-      .float-chat { right: 20px; bottom: 24px; }
-      .footer-bottom { flex-direction: column; }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-card {
+        border-right: none;
+      }
+
+      .why-card:nth-child(odd) {
+        border-right: none;
+      }
+
+      .stats-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-pair {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-divider {
+        display: none;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        text-align: center;
+      }
+
+      .float-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+      }
+
+      .float-call {
+        left: 20px;
+        bottom: 24px;
+      }
+
+      .float-chat {
+        right: 20px;
+        bottom: 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- CUSTOM CURSOR -->
@@ -1366,7 +1714,8 @@
       <div class="services-header">
         <div class="services-header-left">
           <p class="section-label reveal">What We Do</p>
-          <h2 class="reveal">Crafted for<br /><em style="font-style:italic;color:var(--color-gold-light);">Every Surface.</em></h2>
+          <h2 class="reveal">Crafted for<br /><em style="font-style:italic;color:var(--color-gold-light);">Every
+              Surface.</em></h2>
         </div>
         <p class="services-header-right reveal">
           From intimate interiors to expansive commercial facades, we bring the same
@@ -1378,56 +1727,60 @@
         <!-- Interior -->
         <div class="service-card reveal">
           <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="14" width="36" height="28" rx="1" stroke="currentColor" stroke-width="1.8"/>
-            <path d="M8 22h36" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M20 14v28" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="38" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M38 9v6" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="8" y="14" width="36" height="28" rx="1" stroke="currentColor" stroke-width="1.8" />
+            <path d="M8 22h36" stroke="currentColor" stroke-width="1.5" />
+            <path d="M20 14v28" stroke="currentColor" stroke-width="1.5" />
+            <circle cx="38" cy="6" r="3" stroke="currentColor" stroke-width="1.5" />
+            <path d="M38 9v6" stroke="currentColor" stroke-width="1.5" />
           </svg>
           <h3 class="service-title">Interior<br />Painting</h3>
-          <p class="service-desc">Smooth, elegant finishes for every room. We prepare every surface with the care it deserves before a single drop of paint touches the wall.</p>
+          <p class="service-desc">Smooth, elegant finishes for every room. We prepare every surface with the care it
+            deserves before a single drop of paint touches the wall.</p>
           <a href="#contact" class="service-link">Learn more <span>→</span></a>
         </div>
 
         <!-- Exterior -->
         <div class="service-card reveal">
           <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 30 L26 12 L42 30" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            <rect x="14" y="30" width="24" height="14" stroke="currentColor" stroke-width="1.8"/>
-            <rect x="21" y="35" width="10" height="9" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M6 28 Q10 24 14 28" stroke="currentColor" stroke-width="1.3" fill="none"/>
-            <path d="M38 28 Q42 24 46 28" stroke="currentColor" stroke-width="1.3" fill="none"/>
+            <path d="M10 30 L26 12 L42 30" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+            <rect x="14" y="30" width="24" height="14" stroke="currentColor" stroke-width="1.8" />
+            <rect x="21" y="35" width="10" height="9" stroke="currentColor" stroke-width="1.5" />
+            <path d="M6 28 Q10 24 14 28" stroke="currentColor" stroke-width="1.3" fill="none" />
+            <path d="M38 28 Q42 24 46 28" stroke="currentColor" stroke-width="1.3" fill="none" />
           </svg>
           <h3 class="service-title">Exterior<br />Painting</h3>
-          <p class="service-desc">Weather-resistant solutions engineered to last. Protect your property while elevating its curb appeal beyond expectations.</p>
+          <p class="service-desc">Weather-resistant solutions engineered to last. Protect your property while elevating
+            its curb appeal beyond expectations.</p>
           <a href="#contact" class="service-link">Learn more <span>→</span></a>
         </div>
 
         <!-- Cabinet -->
         <div class="service-card reveal">
           <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="10" width="36" height="14" rx="1" stroke="currentColor" stroke-width="1.8"/>
-            <rect x="8" y="28" width="36" height="14" rx="1" stroke="currentColor" stroke-width="1.8"/>
-            <circle cx="26" cy="17" r="2" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="26" cy="35" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="8" y="10" width="36" height="14" rx="1" stroke="currentColor" stroke-width="1.8" />
+            <rect x="8" y="28" width="36" height="14" rx="1" stroke="currentColor" stroke-width="1.8" />
+            <circle cx="26" cy="17" r="2" stroke="currentColor" stroke-width="1.5" />
+            <circle cx="26" cy="35" r="2" stroke="currentColor" stroke-width="1.5" />
           </svg>
           <h3 class="service-title">Cabinet<br />Painting</h3>
-          <p class="service-desc">Precision on every detail. Transform your kitchen and bath with factory-quality finishes that redefine the space entirely.</p>
+          <p class="service-desc">Precision on every detail. Transform your kitchen and bath with factory-quality
+            finishes that redefine the space entirely.</p>
           <a href="#contact" class="service-link">Learn more <span>→</span></a>
         </div>
 
         <!-- Commercial -->
         <div class="service-card reveal">
           <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="18" width="32" height="26" stroke="currentColor" stroke-width="1.8"/>
-            <path d="M10 18 L26 8 L42 18" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            <rect x="16" y="30" width="8" height="14" stroke="currentColor" stroke-width="1.5"/>
-            <rect x="28" y="30" width="8" height="14" stroke="currentColor" stroke-width="1.5"/>
-            <rect x="16" y="22" width="8" height="5" stroke="currentColor" stroke-width="1.3"/>
-            <rect x="28" y="22" width="8" height="5" stroke="currentColor" stroke-width="1.3"/>
+            <rect x="10" y="18" width="32" height="26" stroke="currentColor" stroke-width="1.8" />
+            <path d="M10 18 L26 8 L42 18" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+            <rect x="16" y="30" width="8" height="14" stroke="currentColor" stroke-width="1.5" />
+            <rect x="28" y="30" width="8" height="14" stroke="currentColor" stroke-width="1.5" />
+            <rect x="16" y="22" width="8" height="5" stroke="currentColor" stroke-width="1.3" />
+            <rect x="28" y="22" width="8" height="5" stroke="currentColor" stroke-width="1.3" />
           </svg>
           <h3 class="service-title">Commercial<br />Painting</h3>
-          <p class="service-desc">Professional results with minimal downtime. We work around your schedule so your business never skips a beat.</p>
+          <p class="service-desc">Professional results with minimal downtime. We work around your schedule so your
+            business never skips a beat.</p>
           <a href="#contact" class="service-link">Learn more <span>→</span></a>
         </div>
       </div>
@@ -1443,7 +1796,8 @@
     <div class="why-inner">
       <div class="why-header">
         <p class="section-label reveal">The Anchor Standard</p>
-        <h2 class="reveal">Why Immaculate<br /><em style="font-style:italic;color:var(--color-gold-light);">Stands Apart</em></h2>
+        <h2 class="reveal">Why Immaculate<br /><em style="font-style:italic;color:var(--color-gold-light);">Stands
+            Apart</em></h2>
         <p class="reveal">Four pillars. No exceptions. No shortcuts.</p>
       </div>
 
@@ -1454,7 +1808,8 @@
             <span class="why-icon">🎯</span>
             <h3 class="why-title">Precision</h3>
           </div>
-          <p class="why-desc">Measure twice, paint once. We plan every project with surgical attention to detail — prep work, masking, and execution are all held to the same uncompromising standard.</p>
+          <p class="why-desc">Measure twice, paint once. We plan every project with surgical attention to detail — prep
+            work, masking, and execution are all held to the same uncompromising standard.</p>
         </div>
 
         <div class="why-card reveal">
@@ -1463,7 +1818,8 @@
             <span class="why-icon">⏱️</span>
             <h3 class="why-title">Punctuality</h3>
           </div>
-          <p class="why-desc">On time, every time. We respect your schedule as much as we respect your home. A start date is a commitment, and we treat it as such.</p>
+          <p class="why-desc">On time, every time. We respect your schedule as much as we respect your home. A start
+            date is a commitment, and we treat it as such.</p>
         </div>
 
         <div class="why-card reveal">
@@ -1472,7 +1828,8 @@
             <span class="why-icon">💎</span>
             <h3 class="why-title">Premium Materials</h3>
           </div>
-          <p class="why-desc">Low-VOC, long-lasting finishes from trusted brands. The right product for the right surface — because great paint applied poorly is just expensive failure.</p>
+          <p class="why-desc">Low-VOC, long-lasting finishes from trusted brands. The right product for the right
+            surface — because great paint applied poorly is just expensive failure.</p>
         </div>
 
         <div class="why-card reveal">
@@ -1481,7 +1838,8 @@
             <span class="why-icon">🤝</span>
             <h3 class="why-title">Guaranteed</h3>
           </div>
-          <p class="why-desc">Your satisfaction or we come back. Period. We stand behind every job because our reputation is built on one project at a time, one client at a time.</p>
+          <p class="why-desc">Your satisfaction or we come back. Period. We stand behind every job because our
+            reputation is built on one project at a time, one client at a time.</p>
         </div>
       </div>
     </div>
@@ -1608,7 +1966,9 @@
         <div class="review-card reveal">
           <div class="review-stars">★★★★★</div>
           <p class="review-text">
-            "Ricardo and his team transformed our entire first floor. The preparation work alone was more thorough than any contractor we've ever hired. The finish is absolutely flawless — guests think we renovated the whole house."
+            "Ricardo and his team transformed our entire first floor. The preparation work alone was more thorough than
+            any contractor we've ever hired. The finish is absolutely flawless — guests think we renovated the whole
+            house."
           </p>
           <div class="review-author">
             <div class="review-avatar avatar-a">M</div>
@@ -1618,10 +1978,18 @@
             </div>
             <div class="google-badge">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                <path
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  fill="#4285F4" />
+                <path
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  fill="#34A853" />
+                <path
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                  fill="#FBBC05" />
+                <path
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                  fill="#EA4335" />
               </svg>
               Google
             </div>
@@ -1632,7 +2000,8 @@
         <div class="review-card reveal">
           <div class="review-stars">★★★★★</div>
           <p class="review-text">
-            "We hired Immaculate for our office repaint — 4,000 sq ft. Done in three days, on budget, and they worked around our team's schedule without a single disruption. Professional doesn't even begin to cover it."
+            "We hired Immaculate for our office repaint — 4,000 sq ft. Done in three days, on budget, and they worked
+            around our team's schedule without a single disruption. Professional doesn't even begin to cover it."
           </p>
           <div class="review-author">
             <div class="review-avatar avatar-b">D</div>
@@ -1642,10 +2011,18 @@
             </div>
             <div class="google-badge">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z" fill="#EA4335"/>
+                <path
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  fill="#4285F4" />
+                <path
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  fill="#34A853" />
+                <path
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                  fill="#FBBC05" />
+                <path
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z"
+                  fill="#EA4335" />
               </svg>
               Google
             </div>
@@ -1656,7 +2033,8 @@
         <div class="review-card reveal">
           <div class="review-stars">★★★★★</div>
           <p class="review-text">
-            "Our kitchen cabinets look like they came out of a showroom. The color match was perfect, the lines are razor-sharp, and not a single drip anywhere. Ricardo is detail-obsessed in the best possible way."
+            "Our kitchen cabinets look like they came out of a showroom. The color match was perfect, the lines are
+            razor-sharp, and not a single drip anywhere. Ricardo is detail-obsessed in the best possible way."
           </p>
           <div class="review-author">
             <div class="review-avatar avatar-c">S</div>
@@ -1666,10 +2044,18 @@
             </div>
             <div class="google-badge">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z" fill="#EA4335"/>
+                <path
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  fill="#4285F4" />
+                <path
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  fill="#34A853" />
+                <path
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                  fill="#FBBC05" />
+                <path
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z"
+                  fill="#EA4335" />
               </svg>
               Google
             </div>
@@ -1747,7 +2133,8 @@
             </div>
           </div>
           <p class="footer-tagline">
-            We are not your average painting company. Every project is an opportunity to set a new standard of excellence.
+            We are not your average painting company. Every project is an opportunity to set a new standard of
+            excellence.
           </p>
           <div class="footer-license">LIC #IMMCPP74B8 · Licensed · Bonded · Insured</div>
         </div>
@@ -1779,13 +2166,32 @@
           <h4>Follow Us</h4>
           <div class="social-links">
             <a href="#" class="social-link" aria-label="Facebook">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
             </a>
             <a href="#" class="social-link" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
             </a>
             <a href="#" class="social-link" aria-label="Google">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z" fill="#EA4335"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  fill="#4285F4" />
+                <path
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  fill="#34A853" />
+                <path
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                  fill="#FBBC05" />
+                <path
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z"
+                  fill="#EA4335" />
+              </svg>
             </a>
           </div>
         </div>
@@ -1822,7 +2228,7 @@
     const cursor = document.getElementById('cursor');
     document.addEventListener('mousemove', e => {
       cursor.style.left = e.clientX + 'px';
-      cursor.style.top  = e.clientY + 'px';
+      cursor.style.top = e.clientY + 'px';
     });
     document.querySelectorAll('a, button, .service-card, .filter-btn').forEach(el => {
       el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
@@ -1836,8 +2242,8 @@
     }, { passive: true });
 
     // ── Hamburger menu ────────────────────────────────────────────
-    const hamburger   = document.getElementById('hamburger');
-    const mobileMenu  = document.getElementById('mobileMenu');
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
     const mobileLinks = document.querySelectorAll('.mobile-link, .mobile-menu .btn-nav-cta');
 
     hamburger.addEventListener('click', () => {
@@ -1870,7 +2276,7 @@
     revealEls.forEach(el => revealObs.observe(el));
 
     // ── Gallery filters ───────────────────────────────────────────
-    const filterBtns  = document.querySelectorAll('.filter-btn');
+    const filterBtns = document.querySelectorAll('.filter-btn');
     const galleryPairs = document.querySelectorAll('.gallery-pair');
 
     filterBtns.forEach(btn => {
@@ -1902,4 +2308,5 @@
     });
   </script>
 </body>
+
 </html>
