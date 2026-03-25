@@ -5,6 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Immaculate Pro Painting LLC — Seattle, WA</title>
+  <meta name="description" content="Immaculate Pro Painting LLC — Premium residential and commercial painting in Seattle, Bellevue, Redmond & Kirkland, WA. Licensed, bonded & insured.">
+  <meta property="og:title" content="Immaculate Pro Painting LLC — Seattle, WA">
+  <meta property="og:description" content="Premium residential and commercial painting in the Greater Seattle area. Licensed, bonded & insured. Free estimates within 24 hours.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="logo.png">
+  <meta name="theme-color" content="#C9A84C">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0A0A'/><text x='16' y='23' font-size='20' text-anchor='middle' fill='%23C9A84C' font-family='Georgia,serif' font-weight='700'>I</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -839,16 +846,28 @@
     }
 
     .gallery-pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
       position: relative;
       overflow: hidden;
     }
 
-    .gallery-item {
+    /* Before & After drag slider */
+    .ba-slider {
       position: relative;
       aspect-ratio: 4/3;
       overflow: hidden;
+      cursor: ew-resize;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-y;
+    }
+
+    .ba-img {
+      position: absolute;
+      inset: 0;
+    }
+
+    .ba-before {
+      clip-path: inset(0 50% 0 0);
     }
 
     .gallery-item-inner {
@@ -856,59 +875,19 @@
       inset: 0;
     }
 
-    /* Before gradients */
-    .before-1 {
-      background: linear-gradient(135deg, #2a2420 0%, #1a1512 50%, #0f0e0b 100%);
-    }
+    .before-1 { background: url('before-1.png') center/cover no-repeat; }
+    .before-2 { background: url('before-2.png') center/cover no-repeat; }
+    .before-3 { background: url('before-3.png') center/cover no-repeat; }
+    .before-4 { background: url('before-4.png') center/cover no-repeat; }
 
-    .before-2 {
-      background: linear-gradient(135deg, #1e1e20 0%, #141416 50%, #0d0d0f 100%);
-    }
-
-    .before-3 {
-      background: linear-gradient(135deg, #201a18 0%, #151210 50%, #0c0b09 100%);
-    }
-
-    .before-4 {
-      background: linear-gradient(135deg, #1c1c1c 0%, #121212 50%, #0a0a0a 100%);
-    }
-
-    /* After gradients — slightly richer, brighter tone */
-    .after-1 {
-      background: linear-gradient(135deg, #2c2218 0%, #1e160e 40%, #150f08 100%);
-    }
-
-    .after-2 {
-      background: linear-gradient(135deg, #181820 0%, #10101a 40%, #080810 100%);
-    }
-
-    .after-3 {
-      background: linear-gradient(135deg, #221a14 0%, #180e08 40%, #100905 100%);
-    }
-
-    .after-4 {
-      background: linear-gradient(135deg, #1a1a1a 0%, #111111 40%, #080808 100%);
-    }
-
-    /* Simulated painted surface — painted overlay */
-    .after-1::after,
-    .after-2::after,
-    .after-3::after,
-    .after-4::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(-45deg,
-          rgba(201, 168, 76, 0.03) 0px,
-          rgba(201, 168, 76, 0.03) 1px,
-          transparent 1px,
-          transparent 8px);
-    }
+    .after-1 { background: url('after-1.png') center/cover no-repeat; }
+    .after-2 { background: url('after-2.png') center/cover no-repeat; }
+    .after-3 { background: url('after-3.png') center/cover no-repeat; }
+    .after-4 { background: url('after-4.png') center/cover no-repeat; }
 
     .gallery-label {
       position: absolute;
       bottom: 14px;
-      left: 14px;
       font-size: 0.6rem;
       font-weight: 700;
       letter-spacing: 0.25em;
@@ -918,56 +897,55 @@
     }
 
     .label-before {
+      left: 14px;
       background: rgba(0, 0, 0, 0.7);
       color: var(--color-muted);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .label-after {
+      right: 14px;
       background: var(--color-gold);
       color: var(--color-bg);
     }
 
-    .gallery-divider {
+    .ba-handle {
       position: absolute;
       top: 0;
       bottom: 0;
       left: 50%;
       width: 2px;
       background: var(--color-gold);
-      z-index: 3;
+      z-index: 5;
+      transform: translateX(-50%);
+      pointer-events: none;
     }
 
-    .gallery-divider::after {
-      content: '↔';
+    .ba-handle-btn {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       background: var(--color-gold);
       color: var(--color-bg);
-      width: 28px;
-      height: 28px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
     }
 
     .gallery-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 10px 14px;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+      padding: 8px 14px;
+      background: var(--color-surface);
       font-size: 0.68rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--color-muted);
       text-align: center;
-      z-index: 2;
     }
 
     /* ============================================================
@@ -1565,14 +1543,6 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .gallery-pair {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-divider {
-        display: none;
-      }
-
       .hero-ctas {
         flex-direction: column;
       }
@@ -1891,57 +1861,65 @@
       <div class="gallery-grid">
         <!-- Pair 1 -->
         <div class="gallery-pair reveal" data-category="interior">
-          <div class="gallery-item">
-            <div class="gallery-item-inner before-1"></div>
-            <div class="gallery-label label-before">Before</div>
+          <div class="ba-slider">
+            <div class="ba-img ba-after">
+              <div class="gallery-item-inner after-1"></div>
+              <div class="gallery-label label-after">After</div>
+            </div>
+            <div class="ba-img ba-before">
+              <div class="gallery-item-inner before-1"></div>
+              <div class="gallery-label label-before">Before</div>
+            </div>
+            <div class="ba-handle"><div class="ba-handle-btn">↔</div></div>
           </div>
-          <div class="gallery-item">
-            <div class="gallery-item-inner after-1"></div>
-            <div class="gallery-label label-after">After</div>
-          </div>
-          <div class="gallery-divider"></div>
           <div class="gallery-caption">Master Bedroom · Bellevue, WA</div>
         </div>
 
         <!-- Pair 2 -->
         <div class="gallery-pair reveal" data-category="exterior">
-          <div class="gallery-item">
-            <div class="gallery-item-inner before-2"></div>
-            <div class="gallery-label label-before">Before</div>
+          <div class="ba-slider">
+            <div class="ba-img ba-after">
+              <div class="gallery-item-inner after-2"></div>
+              <div class="gallery-label label-after">After</div>
+            </div>
+            <div class="ba-img ba-before">
+              <div class="gallery-item-inner before-2"></div>
+              <div class="gallery-label label-before">Before</div>
+            </div>
+            <div class="ba-handle"><div class="ba-handle-btn">↔</div></div>
           </div>
-          <div class="gallery-item">
-            <div class="gallery-item-inner after-2"></div>
-            <div class="gallery-label label-after">After</div>
-          </div>
-          <div class="gallery-divider"></div>
           <div class="gallery-caption">Exterior Full Repaint · Kirkland, WA</div>
         </div>
 
         <!-- Pair 3 -->
         <div class="gallery-pair reveal" data-category="cabinets">
-          <div class="gallery-item">
-            <div class="gallery-item-inner before-3"></div>
-            <div class="gallery-label label-before">Before</div>
+          <div class="ba-slider">
+            <div class="ba-img ba-after">
+              <div class="gallery-item-inner after-3"></div>
+              <div class="gallery-label label-after">After</div>
+            </div>
+            <div class="ba-img ba-before">
+              <div class="gallery-item-inner before-3"></div>
+              <div class="gallery-label label-before">Before</div>
+            </div>
+            <div class="ba-handle"><div class="ba-handle-btn">↔</div></div>
           </div>
-          <div class="gallery-item">
-            <div class="gallery-item-inner after-3"></div>
-            <div class="gallery-label label-after">After</div>
-          </div>
-          <div class="gallery-divider"></div>
           <div class="gallery-caption">Kitchen Cabinets · Redmond, WA</div>
         </div>
 
         <!-- Pair 4 -->
         <div class="gallery-pair reveal" data-category="commercial">
-          <div class="gallery-item">
-            <div class="gallery-item-inner before-4"></div>
-            <div class="gallery-label label-before">Before</div>
+          <div class="ba-slider">
+            <div class="ba-img ba-after">
+              <div class="gallery-item-inner after-4"></div>
+              <div class="gallery-label label-after">After</div>
+            </div>
+            <div class="ba-img ba-before">
+              <div class="gallery-item-inner before-4"></div>
+              <div class="gallery-label label-before">Before</div>
+            </div>
+            <div class="ba-handle"><div class="ba-handle-btn">↔</div></div>
           </div>
-          <div class="gallery-item">
-            <div class="gallery-item-inner after-4"></div>
-            <div class="gallery-label label-after">After</div>
-          </div>
-          <div class="gallery-divider"></div>
           <div class="gallery-caption">Office Suite · Seattle, WA</div>
         </div>
       </div>
@@ -2290,6 +2268,37 @@
           pair.style.display = match ? '' : 'none';
         });
       });
+    });
+
+    // ── Before/After sliders ──────────────────────────────────────
+    document.querySelectorAll('.ba-slider').forEach(slider => {
+      const before = slider.querySelector('.ba-before');
+      const handle = slider.querySelector('.ba-handle');
+      let dragging = false;
+
+      const setPos = (clientX) => {
+        const rect = slider.getBoundingClientRect();
+        const pct = Math.max(2, Math.min(98, (clientX - rect.left) / rect.width * 100));
+        before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+        handle.style.left = pct + '%';
+      };
+
+      slider.addEventListener('mousedown', (e) => {
+        dragging = true;
+        setPos(e.clientX);
+        e.preventDefault();
+      });
+      window.addEventListener('mousemove', (e) => { if (dragging) setPos(e.clientX); });
+      window.addEventListener('mouseup', () => { dragging = false; });
+
+      slider.addEventListener('touchstart', (e) => {
+        dragging = true;
+        setPos(e.touches[0].clientX);
+      }, { passive: true });
+      window.addEventListener('touchmove', (e) => {
+        if (dragging) setPos(e.touches[0].clientX);
+      }, { passive: true });
+      window.addEventListener('touchend', () => { dragging = false; });
     });
 
     // ── Smooth anchor with offset for fixed nav ───────────────────
